@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lesson_5/orderConfirm.dart';
 
 class OrderPage extends StatelessWidget {
   final String productTitle;
@@ -46,8 +47,11 @@ class OrderPage extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Оплата прошла успешно')),
+                  Navigator.push(
+                    context, 
+                    MaterialPageRoute(
+                      builder: (_) => OrderConfirm(title: productTitle)
+                    ),
                   );
                 },
                 child: Text('Оплатить'),
